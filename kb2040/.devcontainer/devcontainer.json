@@ -29,5 +29,6 @@
 		"--privileged"
 	],
 	"features": {},
-	"postAttachCommand": "sudo service udev restart"
+	"postAttachCommand": "sudo service udev restart",
+	"remoteUser": "root"
 }
