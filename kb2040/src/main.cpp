@@ -47,8 +47,8 @@ void setup() {
   }
 
   pixels.begin();
-  Serial.end();
-  // Serial.begin(115200); // Comment out to make sure the USB HID device works with the KVM
+  Serial1.begin(115200); // Setup the hardware serial port
+  Serial.end(); // Make sure the USB HID device works with the KVM
 
   // Setup HID
   usb_hid.setBootProtocol(HID_ITF_PROTOCOL_KEYBOARD);
@@ -81,6 +81,7 @@ void process() {
     pixels.show();
     if (false != digitalRead(11)) return;
     keystate = 1;
+    Serial1.println("Started");
 
     input++;
     if (input >= inputcount) input = 0;
